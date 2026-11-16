@@ -68,7 +68,14 @@ def do_surveys(driver, wait):
             done += 1
             print(f"✔️ Xong khảo sát {done} ({res['radios']} câu)")
             try:
-                wait.until(lambda d: d.current_url != url)
+                ok_btn = WebDriverWait(driver, 5).until(
+                    EC.element_to_be_clickable((By.CSS_SELECTOR, ".swal2-confirm"))
+                )
+                driver.execute_script("arguments[0].click();", ok_btn)
+            except TimeoutException:
+                pass
+            try:
+                WebDriverWait(driver, 5).until(lambda d: d.current_url != url)
             except TimeoutException:
                 pass
         else:
