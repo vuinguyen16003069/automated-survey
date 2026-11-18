@@ -1,4 +1,3 @@
-from getpass import getpass
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
@@ -101,7 +100,7 @@ def build_driver():
 
 def main():
     username = input("Mã sinh viên: ").strip()
-    password = getpass("Mật khẩu: ").strip()
+    password = input("Mật khẩu: ").strip()
 
     driver = build_driver()
     wait = WebDriverWait(driver, 15, poll_frequency=0.05)
