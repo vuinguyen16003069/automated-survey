@@ -87,8 +87,7 @@ def build_driver():
     options = webdriver.ChromeOptions()
     options.page_load_strategy = "eager"
     options.set_capability("unhandledPromptBehavior", "accept")
-    options.add_argument("--headless=new")
-    options.add_argument("--disable-gpu")
+    options.add_argument("--start-maximized")
     options.add_argument("--disable-extensions")
     options.add_argument("--blink-settings=imagesEnabled=false")
     options.add_experimental_option("prefs", {
